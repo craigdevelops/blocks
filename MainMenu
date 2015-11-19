@@ -1,0 +1,33 @@
+using UnityEngine;
+using System.Collections;
+
+public class MainMenu : MonoBehaviour {
+	public GUISkin skin;
+
+
+	void OnGUI()
+	{
+		GUI.skin = skin;
+		GUI.Label (new Rect(10,10, 600,100), "Blocks!");
+		if (PlayerPrefs.GetInt("Level Completed") > 0)
+		{
+			if (GUI.Button(new Rect (10,150,100,50), "Continue"))
+			{
+				Application.LoadLevel(PlayerPrefs.GetInt("Level Completed"));
+			}
+		}
+		if (GUI.Button(new Rect (10,200,100,50), "New Game"))
+		{
+			Application.LoadLevel(1);
+			PlayerPrefs.SetInt("Level Completed", 0);
+		}
+
+		if (GUI.Button(new Rect (10,255,100,50), "Quit"))
+		{
+			Application.Quit ();
+		}
+
+
+	}
+
+}
