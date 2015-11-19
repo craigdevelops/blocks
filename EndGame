@@ -1,0 +1,23 @@
+using UnityEngine;
+using System.Collections;
+
+public class EndGame : MonoBehaviour {
+	public GUISkin skin;
+	
+	
+	void OnGUI()
+	{	
+		GUI.skin = skin;
+		GUI.Label (new Rect(10,10, 1000,100), "Winner!! You Are Awesome!");
+		if (GUI.Button(new Rect (10,150,200,50), "Go Back To Main Menu"))
+		{
+			Application.LoadLevel("Main Menu");
+		}
+
+
+		if (GUI.Button(new Rect (50,255,100,50), "Quit"))
+		{
+			Application.Quit ();
+		}
+	}
+}
